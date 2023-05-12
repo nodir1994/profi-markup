@@ -14,7 +14,7 @@ $(document).ready(function () {
   });
 
 
-  var swiperWhyMe= new Swiper('.why_us .swiper-container', {
+  var swiperWhyMe = new Swiper('.why_us .swiper-container', {
     slidesPerView: 'auto',
     spaceBetween: 24,
     autoplay: {
@@ -98,6 +98,13 @@ $(document).ready(function () {
     $(this).toggleClass('active')
   })
 
+  $('.language_block').on('click', function (e) {
+    e.preventDefault()
+    $(this).toggleClass('active')
+  })
+
+
+
   $('[data-fancybox]').fancybox({
     youtube: {
       controls: 1,
@@ -108,14 +115,13 @@ $(document).ready(function () {
     }
   });
 
-  //   $("body").click(function (e) {
-  //     if (
-  //       !$(e.target).is(
-  //         ".hamburger *,.hamburger,.mobile__menu ul,.mobile__menu ul *"
-  //       )
-  //     ) {
-  //       $("body").removeClass("opened");
-  //     }
-  //   });
-  // }
+  $("body").click(function (e) {
+    if (
+      !$(e.target).is(
+        ".language_block *,.language_block"
+      )
+    ) {
+      $(".language_block").removeClass("active");
+    }
+  });
 });
