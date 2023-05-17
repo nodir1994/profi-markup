@@ -10,6 +10,18 @@ $(document).ready(function () {
       el: '.our_specials .swiper-pagination',
       type: 'bullets',
       clickable: true
+    },
+    breakpoints: {
+      767: {
+        slidesPerView: 1
+      },
+      991: {
+        slidesPerView: 2
+
+      },
+      1250: {
+        slidesPerView: 3
+      },
     }
   });
 
@@ -26,6 +38,11 @@ $(document).ready(function () {
       el: '.why_us .swiper-pagination',
       type: 'bullets',
       clickable: true
+    },
+    breakpoints: {
+      767: {
+    spaceBetween: 10,
+      }
     }
   });
 
@@ -44,6 +61,17 @@ $(document).ready(function () {
       el: '.home_faculty .swiper-pagination',
       type: 'bullets',
       clickable: true
+    },
+    breakpoints: {
+      767: {
+        slidesPerView: 1
+      },
+      991: {
+
+      },
+      1250: {
+        slidesPerView: 2
+      },
     }
   });
 
@@ -72,7 +100,20 @@ $(document).ready(function () {
     autoplay: {
       delay: 17000
     },
-    loop: true
+    loop: true,
+    pagination: {
+      el: '.home_partners_swiper .swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    breakpoints: {
+      767: {
+        slidesPerView: 2
+      },
+      991: {
+        slidesPerView: 4
+      }
+    }
   });
 
   var swiper = new Swiper('.swiper_news .swiper-container', {
@@ -91,6 +132,38 @@ $(document).ready(function () {
       nextEl: '.swiper_news .swiper-button-next',
       prevEl: '.swiper_news .swiper-button-prev',
     },
+    breakpoints: {
+      767: {
+        slidesPerView: 1
+      },
+      991: {
+        slidesPerView: 2
+      },
+      1250: {
+        slidesPerView: 2
+      },
+    }
+  });
+
+  var home_advantages = new Swiper('.home_advantages .swiper-container', {
+    slidesPerView: 3,
+    spaceBetween: 24,
+    simulateTouch: false,
+    pagination: {
+      el: '.home_advantages .swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    breakpoints: {
+      767: {
+        slidesPerView: 1,
+      },
+      991: {
+        slidesPerView: 1.6,
+        simulateTouch: true,
+      },
+
+    }
   });
 
   $('.btn_favourite').on('click', function (e) {
@@ -123,5 +196,40 @@ $(document).ready(function () {
     ) {
       $(".language_block").removeClass("active");
     }
+
+    if (
+      !$(e.target).is(
+        ".mobile__menu .right_block, .mobile__menu .right_block *"
+      )
+    ) {
+      $('.mobile__menu').removeClass('active')
+      $('body').removeClass('opened')
+
+    }
   });
+
+  $(document).on('click', '.open_sidebar', function () {
+    $('.mobile__menu').addClass('active')
+    $('body').addClass('opened')
+  })
+
+  $(document).on('click', '.toggle_password span', function () {
+    $(this).parent().toggleClass('show')
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  })
+
+  $(document).on('click', '.mobile__menu .close', function () {
+    $('.mobile__menu').removeClass('active')
+    $('body').removeClass('opened')
+  })
+
+  if ($(window).width() < 1024) {
+    $('section.home_faculty .right__faculty .swiper-container').after($('section.home_faculty .all_faculty '))
+  }
+
 });
