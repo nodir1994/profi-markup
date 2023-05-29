@@ -1,4 +1,18 @@
 $(document).ready(function () {
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() >  $(window).height()) {
+      $('.scrollup').addClass('showed');
+    } else {
+      $('.scrollup').removeClass('showed');
+    }
+  });
+
+  $('.scrollup').click(function () {
+    $("html, body").animate({ scrollTop: 0 }, 600);
+    return false;
+  });
+
   var swiperSpecial = new Swiper('.our_specials .swiper-container', {
     slidesPerView: 4,
     spaceBetween: 24,
@@ -41,7 +55,7 @@ $(document).ready(function () {
     },
     breakpoints: {
       767: {
-    spaceBetween: 10,
+        spaceBetween: 10,
       }
     }
   });
