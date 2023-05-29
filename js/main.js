@@ -246,4 +246,10 @@ $(document).ready(function () {
     $('section.home_faculty .right__faculty .swiper-container').after($('section.home_faculty .all_faculty '))
   }
 
+  $(document).on('click','.home_faculty ul li a',function(e){
+    e.preventDefault();  
+      $('.home_faculty ul li a').removeClass('active')
+      $(this).addClass('active')
+  })
+
 });
