@@ -9,4 +9,14 @@ $(document).ready(function () {
         e.preventDefault()
         $('.mobile_search_form').toggleClass('open_filter')
     })
+     $("body").click(function (e) {
+    if (
+      !$(e.target).is(
+        "#btnFilter, #btnFilter *, .header_search, .header_search *"
+      )
+    ) {
+      $('.mobile_search_form').removeClass('open_filter')
+
+    }
+  });
  });
